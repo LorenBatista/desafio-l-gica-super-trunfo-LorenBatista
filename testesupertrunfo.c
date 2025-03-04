@@ -1,82 +1,73 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-#define MAX_CIDADES 10
+int main()
+{
 
-// Estrutura que representa uma carta de cidade
-typedef struct {
-    char nome[30];
-    char estado[30];
-    int codigo;
-    int populacao;
-    float area;
-    float pib_per_capita;
-    int pontos_turisticos;
-} Carta;
+    char estado, estado2;
+    char codigo[4], codigo2[4];
+    char cidade[50], cidade2[50];
+    int populacao, populacao2;
+    float area, area2;
+    float pib, pib2;
+    int pontosturisticos, pontosturisticos2;
 
-// Função para cadastrar cartas
-void cadastrarCartas(Carta *cidades, int *num_cidades) {
-    if (*num_cidades >= MAX_CIDADES) {
-        printf("Limite de cidades atingido!\n");
-        return;
-    }
+    printf("Insira as informações da Carta 01\n");
+
+    printf("Escolha a letra entre A a H para representar o estado:\n");
+    scanf(" %c", &estado);
+    printf("Escolha um codigo entre A01 a A04:\n");
+    scanf(" %3s", codigo);
+    printf("Insina o nome da cidade:\n");
+    getchar(); // limpar o buffer1
+    fgets(cidade, sizeof(cidade), stdin);
+    printf("Insira a quantidade de habitantes da cidade:\n");
+    scanf(" %d", &populacao);
+    printf("Insira a área territorial da cidade:\n");
+    scanf(" %f", &area);
+    printf("Insira o valor do PIB da cidade:\n");
+    scanf(" %f", &pib);
+    printf("Insira a quantidade de pontos turísticos da cidade:\n");
+    scanf(" %d", &pontosturisticos);
+
+    printf("Insira as informações da Carta 02\n");
     
-    printf("Cadastro da Cidade:\n");
-    printf("Nome: ");
-    scanf("%s", cidades[*num_cidades].nome);
-    printf("Estado: ");
-    scanf("%s", cidades[*num_cidades].estado);
-    printf("Código da carta: ");
-    scanf("%d", &cidades[*num_cidades].codigo);
-    printf("População: ");
-    scanf("%d", &cidades[*num_cidades].populacao);
-    printf("Área Territorial (km²): ");
-    scanf("%f", &cidades[*num_cidades].area);
-    printf("PIB per capita: ");
-    scanf("%f", &cidades[*num_cidades].pib_per_capita);
-    printf("Pontos Turísticos: ");
-    scanf("%d", &cidades[*num_cidades].pontos_turisticos);
-    
-    (*num_cidades)++;
-    printf("Cidade cadastrada com sucesso!\n");
+    printf("Escolha a letra entre A a H para representar o estado:\n");
+    scanf(" %c", &estado2);
+    printf("Escolha um codigo entre A01 a A04:\n");
+    scanf(" %3s", codigo2);
+    printf("Insina o nome da cidade:\n");
+    getchar(); // limpar o buffer1
+    fgets(cidade2, sizeof(cidade2), stdin);
+    printf("Insira a quantidade de habitantes da cidade:\n");
+    scanf(" %d", &populacao2);
+    printf("Insira a área territorial da cidade:\n");
+    scanf(" %f", &area2);
+    printf("Insira o valor do PIB da cidade:\n");
+    scanf(" %f", &pib2);
+    printf("Insira a quantidade de pontos turísticos da cidade:\n");
+    scanf(" %d", &pontosturisticos2);
+
+    printf("Dados da Carta 01\n");
+
+    printf("Estado: %c\n", estado);
+    printf("Codigo: %s\n", codigo);
+    printf("Cidade: %s", cidade);
+
+    printf("População: %d\n", populacao);
+    printf("Área: %.2f\n", area);
+    printf("PIB: %.2f\n", pib);
+    printf("Pontos Turísticos: %d\n", pontosturisticos);
+
+    printf("Dados da Carta 02\n");
+
+    printf("Estado: %c\n", estado2);
+    printf("Codigo: %s\n", codigo2);
+    printf("Cidade: %s", cidade2);
+
+    printf("População: %d\n", populacao2);
+    printf("Área: %.2f\n", area2);
+    printf("PIB: %.2f\n", pib2);
+    printf("Pontos Turísticos: %d\n", pontosturisticos2);
+
+    return 0;
 }
-
-// Função para comparar cartas
-void compararCartas(Carta *cidades, int num_cidades) {
-    if (num_cidades < 2) {
-        printf("É necessário cadastrar pelo menos duas cidades para comparação.\n");
-        return;
-    }
-
-    int escolha1, escolha2, atributo;
-    printf("Escolha a primeira cidade (0 a %d): ", num_cidades - 1);
-    scanf("%d", &escolha1);
-    printf("Escolha a segunda cidade (0 a %d): ", num_cidades - 1);
-    scanf("%d", &escolha2);
-
-    printf("Escolha o atributo para comparação:\n");
-    printf("1. População\n2. Área\n3. PIB per capita\n4. Pontos Turísticos\n");
-    scanf("%d", &atributo);
-
-    switch (atributo) {
-        case 1: // População
-            printf("Comparando %s e %s pela população:\n", cidades[escolha1].nome, cidades[escolha2].nome);
-            if (cidades[escolha1].populacao > cidades[escolha2].populacao) {
-                printf("%s vence com %d pessoas!\n", cidades[escolha1].nome, cidades[escolha1].populacao);
-            } else if (cidades[escolha1].populacao < cidades[escolha2].populacao) {
-                printf("%s vence com %d pessoas!\n", cidades[escolha2].nome, cidades[escolha2].populacao);
-            } else {
-                printf("Empate em população!\n");
-            }
-            break;
-        case 2: // Área
-            printf("Comparando %s e %s pela área:\n", cidades[escolha1].nome, cidades[escolha2].nome);
-            if (cidades[escolha1].area > cidades[escolha2].area) {
-                printf("%s vence com %.2f km²!\n", cidades[escolha1].nome, cidades[escolha1].area);
-            } else if (cidades[escolha1].area < cidades[escolha2].area) {
-                printf("%s vence com %.2f km²!\n", cidades[escolha2].nome, cidades[escolha2].area);
-            }
-    }
-}
-           
