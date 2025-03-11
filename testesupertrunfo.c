@@ -3,11 +3,11 @@
 int main()
 {
 
-    char estado, estado2;
-    char codigo[4], codigo2[4];
+    char estado, estado2; // char para caracteres, [] para vetores de caracteres.
+    char codigo[4], codigo2[4]; 
     char cidade[50], cidade2[50];
-    int populacao, populacao2;
-    float area, area2;
+    int populacao, populacao2; // int para números inteiros.
+    float area, area2; // float para números reais.
     float pib, pib2;
     int pontosturisticos, pontosturisticos2;
 
