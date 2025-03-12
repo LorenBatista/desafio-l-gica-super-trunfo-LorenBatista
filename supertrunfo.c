@@ -1,7 +1,7 @@
 #include <stdio.h>
+#include <string.h>
 
-int main()
-{
+int main(){
 
     char estado, estado2; // char para caracteres, [] para vetores de caracteres.
     char codigo[4], codigo2[4]; 
@@ -52,7 +52,6 @@ int main()
     printf("Estado: %c\n", estado);
     printf("Codigo: %s\n", codigo);
     printf("Cidade: %s", cidade);
-
     printf("População: %d\n", populacao);
     printf("Área: %.2f\n", area);
     printf("PIB: %.2f\n", pib);
@@ -63,42 +62,56 @@ int main()
     printf("Estado: %c\n", estado2);
     printf("Codigo: %s\n", codigo2);
     printf("Cidade: %s", cidade2);
-
     printf("População: %d\n", populacao2);
     printf("Área: %.2f\n", area2);
     printf("PIB: %.2f\n", pib2);
     printf("Pontos Turísticos: %d\n", pontosturisticos2);
 
-    if(populacao > populacao2){
-        printf("Carta 1 venceu\n");
+    // pontuação das cartas e comparação de atributos
+    int pontosCarta1 = 0;
+    int pontosCarta2 = 0;
+
+    if (populacao > populacao2) {
+        printf("População: Carta 1 venceu\n");
+        pontosCarta1++;
     } else {
-        printf("Carta 2 venceu\n");
+        printf("População: Carta 2 venceu\n");
+        pontosCarta2++;
     }
 
-    if(area > area2){
-        printf("Carta 1 venceu\n");
+    if (area > area2) {
+        printf("Área: Carta 1 venceu\n");
+        pontosCarta1++;
     } else {
-        printf("Carta 2 venceu\n");
+        printf("Área: Carta 2 venceu\n");
+        pontosCarta2++;
     }
 
-    if(pib > pib2){
-        printf("Carta 1 venceu\n");
+    if (pib > pib2) {
+        printf("PIB: Carta 1 venceu\n");
+        pontosCarta1++;
     } else {
-        printf("Carta 2 venceu\n");
+        printf("PIB: Carta 2 venceu\n");
+        pontosCarta2++;
     }
 
-    if(pontosturisticos > pontosturisticos2){
-        printf("Carta 1 venceu\n");
+    if (pontosturisticos > pontosturisticos2) {
+        printf("Pontos Turísticos: Carta 1 venceu\n");
+        pontosCarta1++;
     } else {
-        printf("Carta 2 venceu\n");
+        printf("Pontos Turísticos: Carta 2 venceu\n");
+        pontosCarta2++;
     }
 
-    printf("Carta Vencedora é: \n");
-    
-    // Comparação de cartas (Atributo: População):
-    // Carta 1 - São Paulo (SP): 12.300.000
-    // Carta 2 - Rio de Janeiro (RJ): 6.000.000
-    // Resultado: Carta 1 (São Paulo) venceu!
+    // Determinando a carta vencedora
+    printf("\nResultado Final:\n");
+    if (pontosCarta1 > pontosCarta2) {
+        printf("A Carta 1 (Cidade: %s) é a vencedora com %d pontos!\n", cidade, pontosCarta1);
+    } else if (pontosCarta2 > pontosCarta1) {
+        printf("A Carta 2 (Cidade: %s) é a vencedora com %d pontos!\n", cidade2, pontosCarta2);
+    } else {
+        printf("As cartas empataram com %d pontos cada!\n", pontosCarta1);
+    }
 
     return 0;
 }
