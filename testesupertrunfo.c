@@ -69,5 +69,36 @@ int main()
     printf("PIB: %.2f\n", pib2);
     printf("Pontos Turísticos: %d\n", pontosturisticos2);
 
+    if(populacao > populacao2){
+        printf("Carta 1 venceu\n");
+    } else {
+        printf("Carta 2 venceu\n");
+    }
+
+    if(area > area2){
+        printf("Carta 1 venceu\n");
+    } else {
+        printf("Carta 2 venceu\n");
+    }
+
+    if(pib > pib2){
+        printf("Carta 1 venceu\n");
+    } else {
+        printf("Carta 2 venceu\n");
+    }
+
+    if(pontosturisticos > pontosturisticos2){
+        printf("Carta 1 venceu\n");
+    } else {
+        printf("Carta 2 venceu\n");
+    }
+
+    printf("Carta Vencedora é: \n");
+    
+    // Comparação de cartas (Atributo: População):
+    // Carta 1 - São Paulo (SP): 12.300.000
+    // Carta 2 - Rio de Janeiro (RJ): 6.000.000
+    // Resultado: Carta 1 (São Paulo) venceu!
+
     return 0;
 }
